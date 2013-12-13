@@ -1,0 +1,45 @@
+SELECT * FROM `"+tabla+"` WHERE (`usuario`='" + usuario + "')
+
+SELECT * FROM `Estudiante` WHERE (`id`='" + id + "')
+
+SELECT * FROM `Grado` WHERE (`id`='" + id + "_Estudiante')
+
+SELECT * FROM `Materia` WHERE (`id_Estudiante`='" + id + "_Estudiante')
+
+SELECT * FROM `Cursos` WHERE (`id_Estudiante`='" + id + "_Estudiante')
+
+SELECT * FROM `Maestro` WHERE (`id_Estudiante`='" + id + "')
+
+SELECT * FROM `Grado` WHERE (`id_Maestro`='" + id + "_Maestro')
+
+SELECT * FROM `Materia` WHERE (`id_Maestro`='" + id + "_Maestro')
+
+SELECT * FROM `Cursos` WHERE (`id_Maestro`='" + id + "_Maestro')
+
+SELECT * FROM `Nomina` WHERE (`id_Maestro`='" + id + "_Maestro')
+
+SELECT * FROM `Cordinacion` WHERE (`id`='" + id + "')
+
+DELETE FROM `Estudiante` WHERE (`id`='" + id + "')
+
+DELETE FROM `Cordinacion` WHERE (`id`='" + id + "')
+
+DELETE FROM `Maestro` WHERE (`id`='" + id + "')
+
+UPDATE `Estudiante` SET `codigo`='" + codigo + "', `nombre`='" + nombre + "', `telefono`='" + telefono + "', `email`='" + email + "' WHERE (`id`='" + id + "')
+
+
+ MySqlCommand myCommand = new MySqlCommand(
+		"SELECT * FROM `Estudiante`", myConnection);
+            MySqlDataReader myReader = myCommand.ExecuteReader();	
+	        while (myReader.Read()){
+	            string id = myReader["id"].ToString();
+	            string codigo = myReader["codigo"].ToString();
+	            string nombre = myReader["nombre"].ToString();
+		    string telefono = myReader["telefono"].ToString();
+	            TipoDeListado.AppendValues(id, codigo, nombre, telefono);
+
+
+
+
+
